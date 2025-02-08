@@ -1,3 +1,15 @@
 .card{
-    
+    width: 107px;
+    height: 152px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px 2px;
+    padding-top: 20px;
 }

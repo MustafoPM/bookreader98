@@ -34,3 +34,32 @@ p{
 }
 
 .logoTextBook{ color: #FF0000;}
+
+.menu{
+    transform: scale(1s);
+}
+
+.menuItems.hidden {
+    display: none !important;
+}
+
+.menuItems{
+    display: none !important;
+    display: flex !important; 
+    position: fixed !important;
+    z-index: 1000 !important;
+    top: 60px !important;
+    left: 0px !important;
+    width: 100% !important;
+    height: 40% !important;
+    flex-direction: column !important;
+    align-content: flex-end !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 46px !important;
+    background-color: black !important;
+   /* width: 274px; */
+    
+}
+
