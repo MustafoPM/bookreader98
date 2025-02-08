@@ -1,0 +1,35 @@
+.header {
+    background-color: black;
+    height: 60px;
+    width: 100%;
+    
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 150px;
+}
+
+button {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background-color: transparent;
+}
+
+p{
+    border: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+.logoTextReader{
+    color: #ffffff;
+   
+}
+.logoTextBook{ color: #FF0000;}

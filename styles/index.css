@@ -1,0 +1,13 @@
+@import "header.css"; 
+
+body {
+    background-color: #ffffff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+
+
