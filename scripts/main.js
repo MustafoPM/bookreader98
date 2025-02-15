@@ -128,3 +128,38 @@ function closeBook() {
     document.querySelector(".main-content").style.display = "block";
     document.querySelector(".bookViewer").style.display = "none";
 }
+
+
+/**/
+const bookContent = document.querySelector(".bookContent");
+
+// Функция прокрутки вперед и назад
+function scrollBook(direction) {
+    let scrollAmount = window.innerWidth; // Прокрутка на ширину экрана
+    if (direction === "next") {
+        bookContent.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    } else if (direction === "prev") {
+        bookContent.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    }
+}
+
+// Добавьте обработку свайпов (для мобильных устройств)
+let touchStartX = 0;
+let touchEndX = 0;
+
+bookContent.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+
+bookContent.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    if (touchEndX < touchStartX - 50) {
+        scrollBook("next");
+    } else if (touchEndX > touchStartX + 50) {
+        scrollBook("prev");
+    }
+});
+
+// Добавьте кнопки для управления (если нужно)
+document.querySelector(".nextPage").addEventListener("click", () => scrollBook("next"));
+document.querySelector(".prevPage").addEventListener("click", () => scrollBook("prev"));
