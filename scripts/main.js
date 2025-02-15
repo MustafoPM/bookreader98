@@ -48,3 +48,83 @@ window.addEventListener("beforeinstallprompt", (e) => {
     });
 });
 
+//
+document.querySelector(".addFileButton").addEventListener("click", function () {
+    document.querySelector(".fileInput").click();
+});
+
+document.querySelector(".fileInput").addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const bookViewer = document.querySelector(".bookViewer");
+    const bookContent = document.querySelector(".bookContent");
+
+    // Показываем окно просмотра
+    bookViewer.style.display = "block";
+    bookContent.innerHTML = ""; // Очищаем перед загрузкой
+
+    if (file.name.endsWith(".fb2")) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(e.target.result, "text/xml");
+
+            // Получаем содержимое книги
+            const body = xmlDoc.querySelector("body");
+            const paragraphs = body.querySelectorAll("p");
+
+            paragraphs.forEach(p => {
+                const page = document.createElement("div");
+                page.classList.add("page");
+                page.innerText = p.textContent; // Добавляем текст с переносами
+                bookContent.appendChild(page);
+            });
+        };
+        reader.readAsText(file);
+    } else if (file.type.startsWith("text/")) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const text = e.target.result.split("\n");
+            text.forEach(line => {
+                const page = document.createElement("div");
+                page.classList.add("page");
+                page.innerText = line;
+                bookContent.appendChild(page);
+            });
+        };
+        reader.readAsText(file);
+    } else {
+        bookContent.innerHTML = `<p>Этот формат пока не поддерживается.</p>`;
+    }
+});
+
+
+/**/ 
+function disableScroll() {
+    document.body.style.overflow = "hidden";
+}
+
+function enableScroll() {
+    document.body.style.overflow = "auto";
+}
+
+// Вызываем при открытии книги
+document.querySelector(".addFileButton").addEventListener("click", disableScroll);
+
+// Вызываем при закрытии книги
+document.querySelector(".closeViewer").addEventListener("click", enableScroll);
+
+
+/**/ 
+function openBook() {
+    document.body.classList.add("no-scroll");
+    document.querySelector(".main-content").style.display = "none";
+    document.querySelector(".bookViewer").style.display = "flex";
+}
+
+function closeBook() {
+    document.body.classList.remove("no-scroll");
+    document.querySelector(".main-content").style.display = "block";
+    document.querySelector(".bookViewer").style.display = "none";
+}

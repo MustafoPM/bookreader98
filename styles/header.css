@@ -11,7 +11,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    gap: 150px;
+    gap: 160px;
+    position: fixed;
 }
 
 button {
@@ -21,6 +22,21 @@ button {
     color: transparent;
     background-color: transparent;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+    outline: none;
+}
+
+a:visited{
+    color: white;
+}
+
+a:hover, a:focus{
+    text-decoration: none;
+    color: white;
+} 
 
 p{
     border: 0px;
@@ -51,7 +67,7 @@ p{
     top: 60px !important;
     left: 0px !important;
     width: 100% !important;
-    height: 40% !important;
+    height: 35% !important;
     flex-direction: column !important;
     align-content: flex-end !important;
     align-items: center !important;
@@ -59,7 +75,158 @@ p{
     flex-wrap: nowrap !important;
     gap: 46px !important;
     background-color: black !important;
-   /* width: 274px; */
-    
+   /* width: 274px; */   
 }
+
+.listCategory{
+    margin-top: 18px;
+}
+
+.listCategory a{
+    padding: 15px;
+}
+
+.addBtn{
+    position: relative;
+    width: 11px;
+    height: 11px;
+}
+
+.menu {
+    margin-left: 16px; /* Измени значение по необходимости */
+}
+
+.headerLeftItems{
+    margin-top: -6px;
+}
+
+
+.search {
+    position: relative;
+    width: 86px;
+    
+    max-width: 150px;
+    margin-left: -155px;  
+    margin-top: 0px; 
+     
+}
+
+.searchIcon{
+    width: 11px;
+    height: 12px;
+    position: absolute;
+    right: -42px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.search input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border: 0px;
+    border-radius: 5px;
+    outline: none;
+    height: 9px;
+}
+
+
+.headerMainMenu{
+    margin-top: -45%;
+}
+
+/**/
+.bookViewer {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    
+ 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bookText {
+    max-width: 80%; /* Чтобы текст не растягивался слишком сильно */
+    font-size: 20px; /* Размер шрифта */
+    line-height: 1.8; /* Межстрочный интервал */
+    text-align: justify; /* Выравнивание по ширине */
+}
+
+@media (max-width: 768px) {
+    .bookText {
+        font-size: 22px;
+        line-height: 2;
+    }
+}
+
+body.no-scroll {
+    overflow: hidden;
+    pointer-events: none; /* Отключает взаимодействие */
+}
+
+.main-content {
+    display: none;
+}
+
+
+/* Контейнер для страниц */
+.bookContent {
+    height: 90%;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: normal;
+    color: black;
+    line-height: 1.5;
+    flex-grow: 1;
+
+}
+
+/* Страница книги */
+.page {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f4;
+    font-size: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    flex-wrap: wrap;
+}
+
+/* Панель управления (всегда внизу) */
+.controlPanel {
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    color: white;
+    padding: 10px;
+    border: 5px;
+}
+
+.controlPanel button {
+    background: white;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+
 

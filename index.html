@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReaderBook</title>
     
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="apple-touch-icon" href="path/to/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
 
 </head>
@@ -15,15 +16,55 @@
              <span class="logoTextBook">Book</span>
              <span class="logoTextReader">Reader</span>
         </p>
-
-        <button class="menu" type="submit" onclick="toggleMenu()">
-            <img src="./img/Menu.svg" alt="menu">
-        </button>
-        <div class="menuItems" id="menu">
-            <!-- Содержимое меню -->
-            <a href="#"><p>Художественная литература</p></a>
+        
+        <div class="headerLeftItems">
             
-            <a href="#"><p>Комиксы и манга</p></a>
+            <div class="search">
+                <input type="text" name="search" placeholder="Поиск"/>
+                <img src="./img/searchIcon.svg" class="searchIcon" alt="searchIcon"/>
+            </div>
+            
+            <div class="headerMainMenu">
+                
+                <button type="button" class="addFileButton">
+                    <img src="./img/addBtn.png" alt="AddButton" class="addBtn">
+                </button>
+                
+                <input type="file" class="fileInput" accept=".pdf,.epub,.mobi,.txt,.fb2" style="display: none;">
+        
+                <button class="menu" type="submit" onclick="toggleMenu()">
+                    <img src="./img/Menu.svg" alt="menu">
+                </button>
+                
+                <!-- Контейнер для просмотра книги -->
+                <div class="bookViewer" style="display: none;">
+                    <div class="bookContent"></div>
+
+                    <!-- Панель управления (всегда внизу) -->
+                    <div class="controlPanel">
+                        <button class="bookmarkBtn">🔖 Закладка</button>
+                        <button class="searchBtn">🔍 Поиск</button>
+                        <button class="closeViewer">❌ Закрыть</button>
+                    </div>
+                
+                </div>
+                   
+            </div>
+        
+        </div>
+        
+        
+        <!--Категория книг-->
+        <div class="menuItems" id="menu">
+            <div class="listCategory">
+                <!-- Содержимое меню -->
+            <a href="#">
+                <p>Художественная литература</p>
+            </a>
+            
+            <a href="#"><p>
+                Комиксы и манга</p>
+            </a>
             
             <a href="#"><p>
                 Самообразование и развитие</p>
@@ -31,7 +72,10 @@
                 
             <a href="#"><p>Бизнес и менеджмент</p></a>
             
-            <a href="#"><p>Историческая и военная литература</p></a>
+            <a href="#">
+                <p>Историческая и военная литература</p>
+            </a>
+            </div>
         </div>
           
         
