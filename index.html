@@ -9,18 +9,10 @@
     <link rel="apple-touch-icon" href="path/to/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
     
+    
     <style>
         a{
             color: white;
-        }
-        
-        .lazy-card {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .lazy-card.loaded {
-            opacity: 1;
         }
     </style>
     
@@ -51,23 +43,7 @@
                 <button class="menu" type="submit" onclick="toggleMenu()">
                     <img src="./img/Menu.svg" alt="menu">
                 </button>
-                
-                <!-- Контейнер для просмотра книги -->
-                <div class="bookViewer" style="display: none;">
-                    <div class="bookContent"></div>
-
-                    <!-- Панель управления (всегда внизу) -->
-                    <div class="controlPanel">
-                        <button class="prevPage">Назад</button>
-                        <button class="bookmarkBtn">🔖</button>
-                        <button class="searchBtn">🔍</button>
-                        <button class="closeViewer">❌</button>
-                        <button class="nextPage">Вперед</button>
-
-                    </div>
-                
-                </div>
-                   
+               
             </div>
         
         </div>
@@ -101,193 +77,21 @@
     </header>
     
     <main class="main">
-        <!-- Карточки с атрибутом data-src для ленивой загрузки -->
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div> <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/theLittlePrince.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/anotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-        <div class="card lazy-card" data-src="./pages/bookInfo.html">
-            <a href="./pages/bookInfo.html"><img data-src="./img/book/yetAnotherBook.png" alt="#" class="lazy"/></a>
-        </div>
-        
-   
+        <!-- Контейнер для карточек -->
+        <div id="book-cards" class="book-cards"></div>
     </main>
+    
+    <!-- Контейнер для просмотра книги -->
+    <div class="bookViewer" style="display: none;">
+        <div class="bookContent"></div>
+        <div class="controlPanel">
+            <button class="prevPage">Назад</button>
+            <button class="bookmarkBtn">🔖</button>
+            <button class="searchBtn">🔍</button>
+            <button class="closeViewer">❌</button>
+            <button class="nextPage">Вперед</button>
+        </div>
+    </div>
     
     <script src="./scripts/main.js"></script>
 </body>

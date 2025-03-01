@@ -164,24 +164,73 @@ bookContent.addEventListener("touchend", (e) => {
 document.querySelector(".nextPage").addEventListener("click", () => scrollBook("next"));
 document.querySelector(".prevPage").addEventListener("click", () => scrollBook("prev"));
 
-/* Загрузка карточек*/
 
-document.addEventListener("DOMContentLoaded", function() {
-    const lazyCards = document.querySelectorAll('.lazy-card');
 
-    const lazyLoadCard = (target) => {
-        const io = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const card = entry.target;
-                    card.classList.add('loaded'); // Просто делаем карточку видимой
-                    observer.unobserve(card); // Прекращаем наблюдение
-                }
-            });
+
+
+/*API books*/
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const bookContainer = document.getElementById("book-cards");
+    let currentPage = 1;
+    const booksPerPage = 10;
+    const query = "JavaScript";
+
+    async function fetchBooks(query, page = 1) {
+        const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=${booksPerPage}&page=${page}`;
+        console.log("Загружаем страницу:", page);
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            return data.docs.map(book => ({
+                title: book.title,
+                author: book.author_name ? book.author_name.join(', ') : "Автор неизвестен",
+                cover: book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "./img/no-cover.jpg"
+            }));
+        } catch (error) {
+            console.error("Ошибка при загрузке книг:", error);
+            return [];
+        }
+    }
+
+    async function loadMoreBooks() {
+        currentPage++;
+        const newBooks = await fetchBooks(query, currentPage);
+
+        if (newBooks.length === 0) {
+            console.log("Больше книг нет!");
+            return;
+        }
+
+        renderBooks(newBooks, false);
+    }
+
+    function renderBooks(books, clear = true) {
+        if (clear) bookContainer.innerHTML = "";
+
+        books.forEach(book => {
+            const bookCard = document.createElement("div");
+            bookCard.classList.add("book-card");
+
+            bookCard.innerHTML = `
+                <img src="${book.cover}" alt="${book.title}">
+                <h3>${book.title}</h3>
+                <p>${book.author}</p>
+            `;
+
+            bookContainer.appendChild(bookCard);
         });
+    }
 
-        io.observe(target);
-    };
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+            loadMoreBooks();
+        }
+    });
 
-    lazyCards.forEach(lazyLoadCard);
+    fetchBooks(query, currentPage).then(books => renderBooks(books));
 });
+

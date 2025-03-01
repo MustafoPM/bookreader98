@@ -13,3 +13,26 @@ main {
     gap: 20px 2px;
     padding-top: 80px;
 }
+
+
+.book-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.book-card {
+    background: #222;
+    padding: 10px;
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
