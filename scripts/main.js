@@ -163,3 +163,25 @@ bookContent.addEventListener("touchend", (e) => {
 // Добавьте кнопки для управления (если нужно)
 document.querySelector(".nextPage").addEventListener("click", () => scrollBook("next"));
 document.querySelector(".prevPage").addEventListener("click", () => scrollBook("prev"));
+
+/* Загрузка карточек*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const lazyCards = document.querySelectorAll('.lazy-card');
+
+    const lazyLoadCard = (target) => {
+        const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    card.classList.add('loaded'); // Просто делаем карточку видимой
+                    observer.unobserve(card); // Прекращаем наблюдение
+                }
+            });
+        });
+
+        io.observe(target);
+    };
+
+    lazyCards.forEach(lazyLoadCard);
+});
